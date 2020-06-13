@@ -16,3 +16,35 @@ Lease Device Under Test
 [[file:concept.png]]
 
 Terms explained on https://elinux.org/Test_Glossary
+** Example
+#+BEGIN_SRC ditaa :file example.png
++--------------+     +----------------+     +----------+     +-------------+
+|   [Dryad]    | SSH |    [Boruta]    +<--->+ Internet +<--->+   [leszy]   |
+|              +<--->+                |     +----------+     |             |
+| Orange Pi R1 |     | Raspberry Pi 4 +<===>+ OpenVPN  +<===>+ Workstation |
++------+-------+     +----------------+     +----------+     +-------------+
+       ^
+       | SSH
+       v
+   +---+----+
+   | [DUT]  |
+   |        |
+   | Pine64 |
+   +--------+
+#+END_SRC
+
+#+RESULTS:
+[[file:example.png]]
+
+** Software
+| Machine        | Operating system        |
+|----------------+-------------------------|
+| Raspberry Pi 4 | Raspberry Pi OS Desktop |
+| Orange Pi R1   | Armbian Focal           |
+| Pine64         | Armbian Focal Desktop   |
+** Network
+| Machine        |     WAN address | WAN source                   |   LAN address | LAN source |
+|----------------+-----------------+------------------------------+---------------+------------|
+| Raspberry Pi 4 |               ? | Provider DHCP                |   192.168.1.1 | Static     |
+| Orange Pi R1   |     192.168.1.x | Test server DHCP             | 192.168.100.1 | Static     |
+| Pine64         | 192.168.100.100 | Target manager DHCP (single) |           N/A | N/A        |
