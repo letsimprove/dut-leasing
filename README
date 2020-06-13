@@ -1,0 +1,5 @@
+* dut-leasing
+Lease Device Under Test
+** Purpose
+- Provide remote access to Device Under Test
+- Allow others to access Device Under Test when not in use
