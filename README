@@ -3,3 +3,16 @@ Lease Device Under Test
 ** Purpose
 - Provide remote access to Device Under Test
 - Allow others to access Device Under Test when not in use
+** Concept
+#+BEGIN_SRC ditaa :file concept.png
++----------------+     +-------------+     +---------+     +------+
+| Target Manager |     |             +<--->+ Network +<--->+      |
++---------+      +<--->+ Test server |     +---------+     | User |
+|   DUT   |      |     |             +<===>+   VPN   +<===>+      |
++---------+------+     +-------------+     +---------+     +------+
+#+END_SRC
+
+#+RESULTS:
+[[file:concept.png]]
+
+Terms explained on https://elinux.org/Test_Glossary
